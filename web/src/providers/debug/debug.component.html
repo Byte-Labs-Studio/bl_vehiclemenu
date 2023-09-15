@@ -1,0 +1,95 @@
+<div *ngIf="browserMode" class="w-fit h-fit flex flex-col z-[9999999]">
+    <button
+        class="px-[1vw] py-[0.5vw] w-fit h-fit z-[9999999] bg-accent"
+        (click)="toggleDebug()"
+    >
+        Debug
+    </button>
+
+    <ol
+        *ngIf="menuOpen"
+        class="flex flex-col gap-2 bg-primary z-[9999999] max-w-[25vw] h-full px-[0.5vw] py-[0.5vw]"
+    >
+        <li
+            *ngFor="let item of debugList"
+            class="flex flex-col gap-1 border-l-[2px] border-[color:var(--accent)] px-[0.25vw]"
+        >
+            <span class="w-full">{{ item.label }}</span>
+            <div
+                *ngFor="let action of item.actions; let i = index"
+                [ngSwitch]="action.type"
+                class="flex flex-row flex-wrap gap-[0.5vw]"
+            >
+                <span
+                    *ngSwitchCase="'text'"
+                    class="w-full px-[0.5vw]  py-[0.25vw] flex flex-col gap-[0.2vw] bg-accent items-start"
+                >
+                    <p class="">{{ action.label }}</p>
+
+                    <input
+                        *ngIf="action.type === 'text'"
+                        type="text"
+                        class="h-full w-full text-[color:var(--text-secondary)] px-[0.25vw]"
+                        [value]="action.value || ''"
+                        (change)="action.value = i.value"
+                        #i
+                    />
+                    <button
+                        *ngIf="action.type === 'text'"
+                        class="px-[0.5vw] py-[0.25vw] w-[5vw] bg-primary"
+                        (click)="action.action(action.value)"
+                    >
+                        Apply
+                    </button>
+                </span>
+
+                <span
+                    *ngSwitchCase="'checkbox'"
+                    class="w-full px-[0.5vw] py-[0.25vw] flex flex-row gap-[0.2vw] bg-accent items-center"
+                >
+                    <p>{{ action.label }}</p>
+
+                    <input
+                        *ngIf="action.type === 'checkbox'"
+                        type="checkbox"
+                        class="h-full aspect-square"
+                        [value]="action.value || false"
+                        [ngModel]="action.value"
+                        (ngModelChange)="action.action($event)"
+                    />
+                </span>
+
+                <span
+                    *ngSwitchCase="'slider'"
+                    class="w-full px-[0.5vw] py-[0.25vw] flex flex-col gap-[0.2vw] bg-accent items-start"
+                >
+                    <p>{{ action.label }}</p>
+
+                    <input
+                        *ngIf="action.type === 'slider'"
+                        type="range"
+                        class="w-full"
+                        [min]="action.min || 0"
+                        [max]="action.max || 100"
+                        [step]="action.step || 1"
+                        [value]="action.value || 0"
+                        [ngModel]="action.value"
+                        (ngModelChange)="action.action($event)"
+                    />
+                </span>
+
+                <button
+                    *ngSwitchDefault
+                    (click)="action.action()"
+                    class="w-full px-[0.5vw] py-[0.25vw] bg-accent"
+                >
+                    {{ action.label }}
+                </button>
+            </div>
+        </li>
+    </ol>
+
+	<div 
+    style="background-image: url('https://cdn.discordapp.com/attachments/1068663854143389788/1074878298498281554/HUD_-_Target_Menu.png');"
+    class="absolute w-screen bg-cover bg-no-repeat bg-center h-screen top-0 left-0 dev-image"></div>
+</div>
