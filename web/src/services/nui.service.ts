@@ -62,10 +62,10 @@ export class NuiService implements OnDestroy {
      * @param data The data to send with the event
      * @returns {Promise<T>} The callback response from the Client
      **/
-    public static async SendEvent<T = any>(
+    public static async SendEvent<T = any, P = any>(
         eventName: string,
         data: T = {} as T
-    ): Promise<T> {
+    ): Promise<P> {
         const browserMode = NuiService.isBrowserMode
 
         if (browserMode == true) {

@@ -6,7 +6,7 @@
 
 :root {
     --primary: #2c2c2c;
-    --secondary: #424050;
+    --secondary: rgba(0,0,0,0.5);
     --accent: #8685ef;
 
     --text-primary: #faf7ff;

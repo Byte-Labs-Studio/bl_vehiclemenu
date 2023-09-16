@@ -1,0 +1,17 @@
+<div
+    [style.left.px]='option.x'
+    [style.top.px]='option.y'
+    *ngFor='let option of options; let i = index'
+    (click)="optionClick(i)"
+    [style.width]="option.icon === 'root' ? '3vw' : '5vw'"
+    class='aspect-square hover:scale-105 outline-2 active:scale-100 option grid place-items-center absolute'
+>
+    <app-hexagon
+        [active]="option.active"
+    ></app-hexagon>
+    
+    <div 
+        [ngClass]="option.icon"
+        class="icon fill-white absolute"
+    ></div>
+</div>

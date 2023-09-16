@@ -1,15 +1,9 @@
 export enum Receive {
-    visible = 'resource:visible',
-    imageResize = 'resource:imageSize',
-    imageInvert = 'resource:imageInvert',
-    changeText = 'resource:changeText',
-    resetText = 'resource:resetText',
+    visible = 'vehmenu:visible',
+    update = 'vehmenu:update',
 }
 
 export enum Send {
-    close = 'resource:close',
-    imageResize = 'resource:imageSize',
-    imageInvert = 'resource:imageInvert',
-    changeText = 'resource:changeText',
-    resetText = 'resource:resetText',
+    close = 'vehmenu:close',
+    click = 'vehmenu:optionClick',
 }

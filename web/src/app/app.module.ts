@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser'
 
 import { AppComponent } from './app.component'
 import { ProvidersModule } from 'src/providers/providers.module'
-import { ImageholderComponent } from './imageholder/imageholder.component'
+import { HexagonComponent } from './hexagon/hexagon.component';
+import { MenuComponent } from './menu/menu.component'
 
 @NgModule({
-    declarations: [AppComponent, ImageholderComponent],
+    declarations: [AppComponent, HexagonComponent, MenuComponent],
     imports: [BrowserModule, ProvidersModule],
     providers: [],
     bootstrap: [AppComponent],
