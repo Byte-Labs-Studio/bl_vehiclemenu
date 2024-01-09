@@ -1,0 +1,17 @@
+---@class Option
+---@field icon string
+---@field x number
+---@field y number
+---@field index number
+---@field type "Doors" |"Windows" | "Seats"| "Extras"
+---@field boneName string
+---@field active boolean
+---@field visible boolean
+
+---@class ActiveOption
+---@field bone number
+---@field index number
+---@field active boolean
+---@field icon string
+---@field type "Doors" | "Windows" | "Seats" | "Extras"
+---@field boneName string

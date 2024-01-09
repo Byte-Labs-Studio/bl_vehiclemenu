@@ -1,11 +1,12 @@
-export enum Receive {
-    visible = 'vehmenu:visible',
-    update = 'vehmenu:update',
-    initialise = 'vehmenu:initialise',
 
+Send = {
+    visible = "vehmenu:visible",
+    update = "vehmenu:update",
+    initialise = 'vehmenu:initialise',
 }
 
-export enum Send {
+
+Receive = {
     close = 'vehmenu:close',
     click = 'vehmenu:optionClick',
     changeType = 'vehmenu:changeType',
