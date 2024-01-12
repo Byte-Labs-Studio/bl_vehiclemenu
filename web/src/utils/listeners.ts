@@ -3,12 +3,12 @@ import { DebugEventCallback } from "@typings/events"
 import { ReceiveEvent } from "./eventsHandlers"
 
 const AlwaysListened: DebugEventCallback[] = [
-    {
-        action: Receive.visible,
-        handler: (data: string) => {
-            console.log("This is always listened to because it is in the AlwaysListened array.")
-        }
-    }
+    // {
+    //     action: Receive.visible,
+    //     handler: (data: string) => {
+    //         console.log("This is always listened to because it is in the AlwaysListened array.")
+    //     }
+    // }
 ]
 
 export default AlwaysListened

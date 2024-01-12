@@ -3,7 +3,7 @@
     import Hexagon from './Menu/Hexagon.svelte';
     import { ReceiveEvent, SendEvent } from '@utils/eventsHandlers';
     import { Receive, Send } from '@enums/events';
-    import { scale } from 'svelte/transition';
+    import { fly, scale } from 'svelte/transition';
 
     let options: Option[] = [];
 
@@ -109,21 +109,6 @@
     <div class="fill-white absolute close icon !w-[50%]"></div>
 </button>
 
-<!-- <div
-    class="flex flex-col items-center justify-center w-fit h-0 absolute -translate-y-1/2 top-1/2 right-[30vw] gap-[0.5vh]"
->
-    <input
-        type="range"
-        min="0"
-        max="100"
-        value="50"
-        class="w-[25vh] bg-transparent -rotate-90 mb-[50%]"
-    />
-    <div
-        class="aspect-square option grid place-items-center w-[5vh] h-fit -translate-x-[0px]"
-    >
-        <Hexagon />
-        <i class="camera icon fill-white absolute !w-[40%]"></i>
-    </div>
-</div>
- -->
+<div
+    transition:fly={{ y: 100, duration: 150 }}
+class="-bottom-[2vh] left-1/2 -z-[100] -translate-x-1/2 absolute w-[42vh] blur-sm from-[#171717] to-transparent h-[15vh] bg-gradient-to-t "/>

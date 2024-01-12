@@ -32,7 +32,7 @@ local function getOptions(veh)
         for i, data in ipairs(info) do
             local icon, boneName, index in data
             
-            if (bType == "Doors" or bType == "Windows") and i > numDoors then
+            if (bType == "Doors" or bType == "Windows") and i - 2 > numDoors then
                 goto continue
             end
 
@@ -109,13 +109,11 @@ local function menuOpenThread()
     camera:StartCamera(veh)
 
     local model = GetEntityModel(veh)
-    local numSeats = GetVehicleModelNumberOfSeats(model)
 
     local isBike = IsThisModelABike(model) or IsThisModelABicycle(model) or IsThisModelAQuadbike(model)
 
-    print(json.encode(getOptions(veh), {indent = true}))
 
-    local GetWorldPositionOfEntityBone, GetScreenCoordFromWorldCoord, IsVehicleDoorDamaged, GetVehicleDoorAngleRatio, GetPedInVehicleSeat, GetIsVehicleEngineRunning, IsVehicleExtraTurnedOn, DisableControlAction, GetVehiclePedIsIn, PlayerPedId, SendNUIEvent = GetWorldPositionOfEntityBone, GetScreenCoordFromWorldCoord, IsVehicleDoorDamaged, GetVehicleDoorAngleRatio, GetPedInVehicleSeat, GetIsVehicleEngineRunning, IsVehicleExtraTurnedOn, DisableControlAction, GetVehiclePedIsIn, PlayerPedId, SendNUIEvent 
+    local GetVehiclePedIsIn, PlayerPedId, GetWorldPositionOfEntityBone, GetScreenCoordFromWorldCoord, IsVehicleDoorDamaged, DoesVehicleHaveDoor, GetVehicleDoorAngleRatio, IsVehicleSeatFree, GetIsVehicleEngineRunning, SendNUIEvent = GetVehiclePedIsIn, PlayerPedId, GetWorldPositionOfEntityBone, GetScreenCoordFromWorldCoord, IsVehicleDoorDamaged, DoesVehicleHaveDoor, GetVehicleDoorAngleRatio, IsVehicleSeatFree, GetIsVehicleEngineRunning, SendNUIEvent
     while inMenu do
         veh = GetVehiclePedIsIn(PlayerPedId(), false)
         if veh == 0 then
@@ -133,10 +131,9 @@ local function menuOpenThread()
                 local bonePos = GetWorldPositionOfEntityBone(veh, boneid)
 
                 local exists, x, y = GetScreenCoordFromWorldCoord(bonePos.x, bonePos.y, bonePos.z)
-                DrawSprite("shared", "circle", x, y, 0.01, 0.01, 0.0, 255, 255, 255, 255)
+                -- DrawSprite("shared", "circle", x, y, 0.01, 0.01, 0.0, 255, 255, 255, 255)
 
                 if bonePos.x ~= 0.0 and bonePos.y ~= 0.0 and bonePos.z ~= 0.0 or (type == "Seats" and isBike) then
-
 
                     if exists then
                         x = x * resx
@@ -149,7 +146,6 @@ local function menuOpenThread()
 
                         if type == "Doors" then
                             visible = 
-                            
                             IsVehicleDoorDamaged(veh, index) == false and DoesVehicleHaveDoor(veh, index) == 1
                             if visible then
                                 active = GetVehicleDoorAngleRatio(veh, index) > 0.0
@@ -158,7 +154,7 @@ local function menuOpenThread()
                         elseif type == "Windows" then
                             visible = IsVehicleDoorDamaged(veh, index) == false and DoesVehicleHaveDoor(veh, index) == 1
                         elseif type == "Seats" then
-                            active = IsVehicleSeatFree(veh, index)
+                            active = not IsVehicleSeatFree(veh, index)
                         elseif type == "Extras" then
                             if boneName == "engine" then
                                 active = GetIsVehicleEngineRunning(veh) == 1
@@ -207,6 +203,8 @@ RegisterNUICallback(Receive.click, function(option, cb)
 
     local veh = GetVehiclePedIsIn(PlayerPedId(), false)
 
+    print(json.encode(option, {indent=true}))
+
     if veh == 0 then
         return
     end
@@ -217,7 +215,6 @@ RegisterNUICallback(Receive.click, function(option, cb)
         return
     end
 
-    print(json.encode(option, {indent = true}))
     if type == "Doors" then
         if active then
             SetVehicleDoorShut(veh, index, false)

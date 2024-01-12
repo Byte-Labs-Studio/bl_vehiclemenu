@@ -21,76 +21,84 @@ return {
             index = 2,
         },
 
+
         {
-            boneName = 'seat_pside_r1',
+            boneName = 'seat_dside_r1',
             icon = 'seat',
             index = 3,
         },
         {
-            boneName = 'seat_pside_r2',
+            boneName = 'seat_pside_r1',
             icon = 'seat',
             index = 4,
         },
+
         {
-            boneName = 'seat_pside_r3',
+            boneName = 'seat_dside_r2',
             icon = 'seat',
             index = 5,
         },
         {
-            boneName = 'seat_pside_r4',
+            boneName = 'seat_pside_r2',
             icon = 'seat',
             index = 6,
         },
+
         {
-            boneName = 'seat_pside_r5',
+            boneName = 'seat_dside_r3',
             icon = 'seat',
             index = 7,
         },
         {
-            boneName = 'seat_pside_r6',
+            boneName = 'seat_pside_r3',
             icon = 'seat',
             index = 8,
         },
+
         {
-            boneName = 'seat_pside_r7',
+            boneName = 'seat_dside_r4',
             icon = 'seat',
             index = 9,
         },
         {
-            boneName = 'seat_dside_r1',
+            boneName = 'seat_pside_r4',
             icon = 'seat',
             index = 10,
         },
+
         {
-            boneName = 'seat_dside_r2',
+            boneName = 'seat_dside_r5',
             icon = 'seat',
             index = 11,
         },
         {
-            boneName = 'seat_dside_r3',
+            boneName = 'seat_pside_r5',
             icon = 'seat',
             index = 12,
         },
+
         {
-            boneName = 'seat_dside_r4',
+            boneName = 'seat_dside_r6',
             icon = 'seat',
             index = 13,
         },
         {
-            boneName = 'seat_dside_r5',
+            boneName = 'seat_pside_r6',
             icon = 'seat',
             index = 14,
         },
+
         {
-            boneName = 'seat_dside_r6',
+            boneName = 'seat_dside_r7',
             icon = 'seat',
             index = 15,
         },
         {
-            boneName = 'seat_dside_r7',
+            boneName = 'seat_pside_r7',
             icon = 'seat',
             index = 16,
         },
+
     },
     Doors = {
         {
