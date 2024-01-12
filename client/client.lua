@@ -203,7 +203,6 @@ RegisterNUICallback(Receive.click, function(option, cb)
 
     local veh = GetVehiclePedIsIn(PlayerPedId(), false)
 
-    print(json.encode(option, {indent=true}))
 
     if veh == 0 then
         return
@@ -262,3 +261,9 @@ RegisterCommand("vehiclemenu", function()
 end, false)
 
 RegisterKeyMapping("vehiclemenu", "Vehicle Menu", "keyboard", "end")
+
+
+RegisterNetEvent('bl_vehiclemenu:client:open', function()
+    if not cache.vehicle then return end
+    menuOpenThread()
+end)
