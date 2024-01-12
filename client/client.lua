@@ -263,7 +263,4 @@ end, false)
 RegisterKeyMapping("vehiclemenu", "Vehicle Menu", "keyboard", "end")
 
 
-RegisterNetEvent('bl_vehiclemenu:client:open', function()
-    if not cache.vehicle then return end
-    menuOpenThread()
-end)
+RegisterNetEvent('bl_vehiclemenu:client:open', menuOpenThread)
