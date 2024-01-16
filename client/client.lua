@@ -235,7 +235,7 @@ RegisterNUICallback(Receive.click, function(option, cb)
     elseif type == "Extras" then
         if boneName == "engine" then
             active = not active
-            SetVehicleEngineOn(veh, active, true, true)
+            SetVehicleEngineOn(veh, active, false, true)
         elseif boneName == "interiorlight" then
             active = not active
             SetVehicleInteriorlight(veh, active)
