@@ -16,8 +16,8 @@
                 SendEvent(Send.close);
             }
         };
-        window.addEventListener('keydown', keyHandler);
-        return () => window.removeEventListener('keydown', keyHandler);
+        window.addEventListener('keyup', keyHandler);
+        return () => window.removeEventListener('keyup', keyHandler);
     });
 </script>
 
