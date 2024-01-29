@@ -263,4 +263,7 @@ end, false)
 RegisterKeyMapping("vehiclemenu", "Vehicle Menu", "keyboard", "end")
 
 
-RegisterNetEvent('bl_vehiclemenu:client:open', menuOpenThread)
+RegisterNetEvent('bl_vehiclemenu:client:open', function()
+    if inMenu then return end
+    CreateThread(menuOpenThread)
+end)
