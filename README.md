@@ -1,6 +1,8 @@
-# bl_vehiclemenu
+# Byte Labs - Vehicle Menu
+Collection of UI Minigames for FiveM
 
-Advanced vehicle menu for FiveM.
+Website: [Byte Labs](https://byte-labs.net)
+Discord: [Byte Labs](https://discord.gg/fqsqSjZfxE)
 
 *nothing more...*
 
