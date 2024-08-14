@@ -1,6 +1,8 @@
 # Byte Labs - Vehicle Menu
 Advanced vehicle menu for FiveM.
 
+![image](preview.png)
+
 Website: [Byte Labs](https://byte-labs.net)
 Discord: [Byte Labs](https://discord.gg/fqsqSjZfxE)
 
